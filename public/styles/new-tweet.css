@@ -6,9 +6,8 @@ form {
 div{
   flex-direction: row;
 }
-textarea {
+textarea#tweet-text {
   border-bottom: 3px solid black;
-
 }
 
 button {
