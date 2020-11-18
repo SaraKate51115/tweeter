@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+div{
+  flex-direction: row;
+}
+textarea {
+  border-bottom: 3px solid black;
+
+}
+
+button {
+  margin: 10px;
+  position: relative;
+  right: 250px;
+}
+
+output {
+  margin: 10px;
+  position: relative;
+  left: 250px;
+}
+
+
+
