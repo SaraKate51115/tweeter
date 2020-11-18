@@ -1,0 +1,18 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+}
+
+span {
+  color:  #FFFFFF;
+  font-family: 'Bungee', cursive;
+  padding: 1.5em;
+  position: relative;
+  top: 1.5em;
+}
+
+.new-tweet {
+  font-family: 'Source Sans Pro', sans-serif;
+
+}

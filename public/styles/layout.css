@@ -9,6 +9,10 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+/* REMOVE */
+* {
+  border: 1px solid red !important;
+}
 
 /*
  * Global layout stuff
@@ -24,6 +28,6 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- nav {
+ /* nav {
    font-family: 'Bungee', cursive;
- }
+ } */
