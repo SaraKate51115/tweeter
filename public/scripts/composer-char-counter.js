@@ -1,37 +1,17 @@
-$(() => {
-
-});
-
 
 $(document).ready(() => {
   // this callback runs once the document is "ready"
   console.log('ready');
 
-   const $tweetText = $('#tweet-text');
+  const $tweetText = $('#tweet-text');
+  const maxLength = 140;
 
-  //  $tweetText.keydown(() => {
-  //   console.log('keydown');
-  // });
+  $tweetText.keyup(function() {
+    let length = $(this).val().length;
+    length = maxLength - length;
 
-  
-  // $tweetText.blur(() => {
-  //   console.log('blur');
-  // });
-
-  // $tweetText.keyup(() => {
-  //   console.log('keyup');
-  // });
-
-  $tweetText.keypress(() => {
-    console.log('keypress');
-  });
-
-  // $tweetText.change(() => {
-  //   console.log('change');
-  // });
-
-
-
-  
-
-});
+    //WHAT IS THE BETTER WAY TO DO THIS- USING 'THIS'
+      //HOW DO I CHANGE THE COLOR TO RED WHEN MAX VALUE REACHED?
+    $('.counter').text(length);
+  })
+ });

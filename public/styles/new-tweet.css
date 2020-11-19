@@ -7,20 +7,25 @@ div{
   flex-direction: row;
 }
 textarea#tweet-text {
-  border-bottom: 3px solid black;
+  border-bottom: 4px solid black;
+  background-color: #f4f1ec;
 }
 
 button {
-  margin: 10px;
+  margin: 0.5em;
   position: relative;
-  right: 250px;
+  right: 900px;
+  font-size: 1.5em;
 }
 
 output {
-  margin: 10px;
+  margin: 0.5em;
   position: relative;
-  left: 250px;
+  left: 900px;
+  font-size: 1.5em;
 }
 
-
-
+label {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
