@@ -15,16 +15,16 @@ button {
   margin: 0.5em;
   font-size: 2em;
   position: relative;
-    bottom: 1em;
-    right: 900px;
+  bottom: 20px;
+  right: 600px;
 }
 
 output {
   margin: 0.5em;
   font-size: 2em;
   position: relative;
-    bottom: 1em;
-    left: 900px;
+  bottom: 20px;
+  left: 600px;
 }
 
 label {

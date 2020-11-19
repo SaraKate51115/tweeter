@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -54,22 +57,14 @@
           <h2>Compose Tweet</h2>
           <form method="POST" action="/tweets">
             <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text"></textarea>
+            <textarea name="text" id="tweet-text" placeholder="tweet tweet"></textarea>
             <div>
               <button type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
-            <article class="tweet">
-                <header>
-                  <h1>Bonnie</h1>
-                  <h2>ofBonnie&Clyde</h2>
-                </header>
-                <footer>
-                  <p class="date">10 days ago</p>
-                  <p> &#9873 &#10226 &#9829</p>
-                </footer>
-            </article>  
+          <div id="tweets-container">
+          </div>
         </section>
       </main>
       <!-- <h3>"Hello"</h3> -->
