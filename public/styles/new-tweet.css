@@ -13,16 +13,18 @@ textarea#tweet-text {
 
 button {
   margin: 0.5em;
+  font-size: 2em;
   position: relative;
-  right: 900px;
-  font-size: 1.5em;
+    bottom: 1em;
+    right: 900px;
 }
 
 output {
   margin: 0.5em;
+  font-size: 2em;
   position: relative;
-  left: 900px;
-  font-size: 1.5em;
+    bottom: 1em;
+    left: 900px;
 }
 
 label {

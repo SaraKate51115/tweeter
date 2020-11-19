@@ -7,6 +7,8 @@ article{
   background-color: #f4f1ec;
   width: 100%;
   margin: 20px;
+  position: relative;
+    top: 3em;
 }
 
 article.tweet header {
@@ -30,11 +32,11 @@ article.tweet header h2 {
   color: grey;
 }
 
-article.tweet header p {
+/* article.tweet header p {
   font-size: 1em;
   color: grey;
   text-decoration: underline;
-}
+} */
 
 article.tweet footer p.date {
   font-size: 1.5em ;
