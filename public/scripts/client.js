@@ -5,33 +5,45 @@
  */
 
 
-
-// $("input").on("keydown keyup change", function(){
-//     var value = $(this).val();
-//     if (value.length < minLength)
-//         $("span").text("Text is short");
-//     else if (value.length > maxLength)
-//         $("span").text("Text is long");
-//     else
-//         $("span").text("Text is valid");
-// });
-
-
 $(document).ready(() => {
   const $form = $('#new-tweet-form');
+  const $error = $('#error');
 
   const validateForm = function() {
     const value = $form.find("textArea").val();
-    if (value.length === 0) {
-      alert("too short")
-      return false;
-    } 
-    if (value.length > 140) {
-      alert("too long")
-      return false;
-    }
-      return true;
-    }
+    const value2 = $form.find("output").val();
+
+      // $('#tweet-text').keyup(function() {
+        if (value.length === 0) {
+          alert("too short")
+          return false;
+        } 
+        if (value.length > 140) {
+          alert("too long")
+          return false;
+        }
+         // value2.css('color', 'black')
+          return true;
+        }
+      // }
+     
+    
+  
+
+    const value2 = $form.find("output").val()
+    console.log(value2)
+
+    // $("#mytextarea").keyup(function(){
+
+    //   var maxlength = 15; // specify the maximum length  
+       
+    //   if($("#mytextarea").val().length > maxlength){
+    //   $("#mytextarea").css('color','red');
+    //   } 
+    //   else{
+    //   $("#mytextarea").css('color','black');
+    //   }
+    //   });
   
   
   $form.on('submit', (e) => {
@@ -42,12 +54,14 @@ $(document).ready(() => {
         .then(() => {
           console.log("posted")
 
-        $form.find("textArea").val("")
+        $form.find("textArea").val("");
+        $form.find("output").val("140");
 
         //clear tweets
         $('#tweets-container').empty();
         loadTweeets();
         })
+
      }
   })
 
@@ -55,6 +69,7 @@ $(document).ready(() => {
     $.get("/tweets").then(function(data) {
       renderTweet(data);
     })
+    // $("new-tweet-form").load("/tweets", renderTweet(data))
 }
       
 
@@ -90,9 +105,8 @@ $(document).ready(() => {
   //Function Implementation:
   const createTweetElement = function(tweetData) {
     //return <article> element containing the enitre HTML structure of the tweet
-    const $tweet = $(`<article class="tweet">Hello</article>`); //=> creates hard coded tweets
+   // const $tweet = $(`<article class="tweet">Hello</article>`); //=> creates hard coded tweets
 
-    //REVIEW: IS BELOW CORRECT???
     const markup = `
     <article class="tweet">
     <div class="header">
@@ -123,7 +137,7 @@ $(document).ready(() => {
   const renderTweet = function(tweets) {
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet); //append
     }
   }
   // renderTweet(data);
