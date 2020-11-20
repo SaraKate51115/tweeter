@@ -5,31 +5,56 @@
  */
 
 
-$(document).ready(() => {
 
+// $("input").on("keydown keyup change", function(){
+//     var value = $(this).val();
+//     if (value.length < minLength)
+//         $("span").text("Text is short");
+//     else if (value.length > maxLength)
+//         $("span").text("Text is long");
+//     else
+//         $("span").text("Text is valid");
+// });
+
+
+$(document).ready(() => {
   const $form = $('#new-tweet-form');
+
+  const validateForm = function() {
+    const value = $form.find("textArea").val();
+    if (value.length === 0) {
+      alert("too short")
+      return false;
+    } 
+    if (value.length > 140) {
+      alert("too long")
+      return false;
+    }
+      return true;
+    }
+  
   
   $form.on('submit', (e) => {
     e.preventDefault();
-    console.log($form.serialize());
 
-    $.post("/tweets", $form.serialize())
-      .then(() => {
-        console.log("success")
-        console.log("GET success: ");
-        console.log(data);
-      //clear tweets
-      $('#tweets-container').empty();
-      loadTweeets();
-         
-      })
+     if (validateForm() === true) {
+      $.post("/tweets", $form.serialize())
+        .then(() => {
+          console.log("posted")
+
+        $form.find("textArea").val("")
+
+        //clear tweets
+        $('#tweets-container').empty();
+        loadTweeets();
+        })
+     }
   })
 
   const loadTweeets = function() {
     $.get("/tweets").then(function(data) {
       renderTweet(data);
     })
-    
 }
       
 
