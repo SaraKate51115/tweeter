@@ -7,30 +7,58 @@
 
 $(document).ready(() => {
 
+  const $form = $('#new-tweet-form');
+  
+  $form.on('submit', (e) => {
+    e.preventDefault();
+    console.log($form.serialize());
+
+    $.post("/tweets", $form.serialize())
+      .then(() => {
+        console.log("success")
+        console.log("GET success: ");
+        console.log(data);
+      //clear tweets
+      $('#tweets-container').empty();
+      loadTweeets();
+         
+      })
+  })
+
+  const loadTweeets = function() {
+    $.get("/tweets").then(function(data) {
+      renderTweet(data);
+    })
+    
+}
+      
+
+  
+
     // Test / driver code (temporary). Eventually will get this from the server.
     const data = [
-      {
-        "user": {
-          "name": "Newton",
-          "avatars": "https://i.imgur.com/73hZDYK.png"
-          ,
-          "handle": "@SirIsaac"
-        },
-        "content": {
-          "text": "If I have seen further it is by standing on the shoulders of giants"
-        },
-        "created_at": 1461116232227
-      },
-      {
-        "user": {
-          "name": "Descartes",
-          "avatars": "https://i.imgur.com/nlhLi3I.png",
-          "handle": "@rd" },
-        "content": {
-          "text": "Je pense , donc je suis"
-        },
-        "created_at": 1461113959088
-      }
+      // {
+      //   "user": {
+      //     "name": "Newton",
+      //     "avatars": "https://i.imgur.com/73hZDYK.png"
+      //     ,
+      //     "handle": "@SirIsaac"
+      //   },
+      //   "content": {
+      //     "text": "If I have seen further it is by standing on the shoulders of giants"
+      //   },
+      //   "created_at": 1461116232227
+      // },
+      // {
+      //   "user": {
+      //     "name": "Descartes",
+      //     "avatars": "https://i.imgur.com/nlhLi3I.png",
+      //     "handle": "@rd" },
+      //   "content": {
+      //     "text": "Je pense , donc je suis"
+      //   },
+      //   "created_at": 1461113959088
+      // }
     ]
    
 
@@ -62,7 +90,7 @@ $(document).ready(() => {
 
       //document.createElement?
 
-    console.log(`${tweetData}`)
+    //console.log(`${tweetData}`)
     // return $tweet;
     return markup;
   };
@@ -73,6 +101,7 @@ $(document).ready(() => {
       $('#tweets-container').append($tweet);
     }
   }
-  renderTweet(data);
+  // renderTweet(data);
+  loadTweeets();
 });
 
